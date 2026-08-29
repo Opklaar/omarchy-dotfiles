@@ -1,0 +1,18 @@
+#!/bin/bash
+# Double-tap Super to toggle the DeepSeek quick-access dropdown.
+# Wired as a `release` binding on SUPER; each lone Super tap runs this,
+# and two taps within 400ms toggle the panel.
+STATE="${XDG_RUNTIME_DIR:-/tmp}/omarchy-super-tap.last"
+echo "$(date +%H:%M:%S.%3N) tap" >> /tmp/omarchy-super-tap-debug.log
+NOW=$(date +%s%3N)
+
+if [ -f "$STATE" ]; then
+  PREV=$(cat "$STATE")
+  if (( NOW - PREV < 400 )); then
+    rm -f "$STATE"
+    omarchy-shell shell toggle fh.agents
+    exit 0
+  fi
+fi
+
+echo "$NOW" > "$STATE"

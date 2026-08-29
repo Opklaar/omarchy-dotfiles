@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "id": "fh.agents",
+  "name": "DeepSeek",
+  "version": "1.0.0",
+  "author": "Omarchy",
+  "license": "MIT",
+  "description": "Quick access to DeepSeek: launch OpenCode with the flash-vision model.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "activation": "on-demand",
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "DeepSeek",
+    "description": "Click the icon to open OpenCode on the DeepSeek flash-vision model.",
+    "category": "AI",
+    "aliases": [
+      "deepseek",
+      "ai"
+    ],
+    "allowMultiple": false,
+    "defaults": {
+      "providers": {
+        "claude": { "enabled": false },
+        "codex": { "enabled": false },
+        "fireworks": { "enabled": false }
+      },
+      "refreshIntervalSec": 900,
+      "syncMode": "Off",
+      "syncDir": "",
+      "syncFileName": "",
+      "syncDeviceId": ""
+    },
+    "schema": [
+      {
+        "key": "refreshIntervalSec",
+        "type": "integer",
+        "label": "Refresh interval (seconds)",
+        "min": 30,
+        "max": 3600,
+        "step": 30,
+        "defaultValue": 900
+      },
+      {
+        "key": "syncMode",
+        "type": "enum",
+        "label": "Synced aggregation",
+        "options": ["Off", "On"],
+        "defaultValue": "Off"
+      },
+      {
+        "key": "syncDir",
+        "type": "path",
+        "label": "Sync folder",
+        "defaultValue": ""
+      },
+      {
+        "key": "syncFileName",
+        "type": "string",
+        "label": "Snapshot file name",
+        "defaultValue": ""
+      },
+      {
+        "key": "syncDeviceId",
+        "type": "string",
+        "label": "Device id",
+        "defaultValue": ""
+      }
+    ]
+  },
+  "omarchy": {
+    "clonedFrom": "omarchy.agents"
+  }
+}
