@@ -11,8 +11,9 @@ This is a complete, step-by-step guide to reproduce this machine from a fresh in
 
 - **DeepSeek quick-access widget** — a robot icon in the top bar. Click it (or double-tap `Super`) to open a dropdown where you type a question and get an answer inline, powered by `deepseek-v4-flash-vision-exp`. "Open app" launches full OpenCode (on `deepseek-v4-pro`).
 - **DeepSeek as the only AI** — every other agent (Claude Code, Codex, Gemini, Grok, Copilot, etc.) and AI web app (ChatGPT, Grok) is removed.
+- **HEY CLI + TUI** — terminal email/calendar (`hey` → help, `hey tui` → app).
 - **Clean base** — removed unwanted web apps (X, WhatsApp, Google Photos/Messages/Maps, Zoom, Discord), Spotify/Signal/1Password launchers, and tmux/herdr/rails shell aliases.
-- **~135 community themes** (optional).
+- **38 curated themes** (installed automatically; the rest blacklisted).
 
 ---
 
@@ -85,7 +86,13 @@ The key is stored in `~/.local/share/opencode/auth.json` (never committed).
 The model config (`v4-pro` main, `v4-flash` small, `v4-flash-vision-exp` vision)
 is already in this repo.
 
-## Step 7 — Verify it works
+## Step 7 — Sign in to HEY (CLI + TUI)
+
+```bash
+hey        # first run walks through browser OAuth; then `hey tui` opens the app
+```
+
+## Step 8 — Verify it works
 
 - **Double-tap `Super`** → the DeepSeek dropdown opens with the input focused.
 - Type a question, press **Enter** → answer appears inline.
