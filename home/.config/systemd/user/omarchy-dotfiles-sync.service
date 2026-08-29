@@ -1,0 +1,6 @@
+[Unit]
+Description=Keep Omarchy dotfiles symlinks in sync
+
+[Service]
+Type=oneshot
+ExecStart=%h/dotfiles/sync.sh

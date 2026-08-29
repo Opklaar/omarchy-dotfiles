@@ -23,6 +23,8 @@ opencode auth login      # the ONLY thing you bring: your DeepSeek API key
 
 `bootstrap.sh` is idempotent — re-run it after `git pull` to apply updates.
 
+A **sync watchdog** (systemd timer, runs every 5 min) keeps the symlinks intact: if the shell or opencode atomically rewrites a config, the watchdog captures the new content back into the repo and re-links it automatically — so you never have to think about it.
+
 ## Notes
 
 - Only `~/.config/`, `~/.bashrc`, and `~/.local/bin/` are tracked — `omarchy update` never wipes these.

@@ -1,0 +1,9 @@
+[Unit]
+Description=Periodically sync Omarchy dotfiles symlinks
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+
+[Install]
+WantedBy=timers.target
