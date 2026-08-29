@@ -92,6 +92,13 @@ is already in this repo.
 hey        # first run walks through browser OAuth; then `hey tui` opens the app
 ```
 
+`hey`'s first run installs its Omarchy integration (bar widget + theme template),
+which overwrites the HEY TUI theme fix in this repo. Re-apply it with:
+
+```bash
+./bootstrap.sh    # re-links the fixed hey theme template
+```
+
 ## Step 8 — Verify it works
 
 - **Double-tap `Super`** → the DeepSeek dropdown opens with the input focused.
