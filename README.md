@@ -58,14 +58,18 @@ cd ~/dotfiles
 This links all config files into `$HOME`, re-runs the app/agent removals, reloads
 Hyprland + the shell, and enables the sync watchdog (below).
 
-## Step 5 — Install community themes (optional)
+## Step 5 — Install themes (optional)
 
 ```bash
 ./install-themes.sh
 ```
 
-Clones ~135 community themes into `~/.config/omarchy/themes`. GitHub rate-limits
-unauthenticated clones — if some fail, just re-run the script to retry.
+Installs the **38 curated themes** I actually use (the rest are blacklisted — see
+`theme-blacklist.txt`). GitHub rate-limits unauthenticated clones — if some fail,
+just re-run the script to retry.
+
+Stock themes (the ~22 that ship with Omarchy) can't be deleted; the ones I don't
+want are listed in `theme-blacklist.txt`.
 
 ## Step 6 — Bring your DeepSeek API key
 
@@ -145,7 +149,8 @@ home/.config/opencode/opencode.json         # DeepSeek model config (no keys)
 home/.config/systemd/user/*                 # sync watchdog timer + service
 home/.local/bin/omarchy-super-tap           # double-Super tap-detection script
 home/.bashrc                                 # shell alias cleanup
-themes.txt                                   # list of ~135 community theme URLs
+themes.txt                                   # 38 curated community theme URLs
+theme-blacklist.txt                          # themes deliberately removed/unwanted
 bootstrap.sh                                 # apply everything (idempotent)
 install-themes.sh                            # re-clone themes
 sync.sh                                      # watchdog: heal symlinks
