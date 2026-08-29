@@ -42,6 +42,10 @@
           "id": "omarchy.tray"
         },
         {
+          "id": "37signals.hey",
+          "notify": true
+        },
+        {
           "id": "fh.agents"
         },
         {

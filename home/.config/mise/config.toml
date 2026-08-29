@@ -1,0 +1,5 @@
+[tools]
+gh = "latest"
+"github:basecamp/hey-cli" = "latest"
+node = "26.7.0"
+opencode = "latest"

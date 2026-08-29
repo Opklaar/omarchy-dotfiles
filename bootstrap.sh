@@ -6,6 +6,9 @@
 set -euo pipefail
 DOTFILES="$(cd "$(dirname "$0")" && pwd)"
 
+# The theme to land on after install (change this to your current favorite).
+THEME="Inkypinky"
+
 link() {
   local src="$1" dst="$2"
   mkdir -p "$(dirname "$dst")"
@@ -41,5 +44,8 @@ systemctl --user enable --now omarchy-dotfiles-sync.timer >/dev/null 2>&1 || tru
 
 echo "→ Installing the selected themes (from themes.txt)"
 "$DOTFILES/install-themes.sh"
+
+echo "→ Setting theme to $THEME"
+omarchy theme set "$THEME" >/dev/null 2>&1 || true
 
 echo "✓ Done."
