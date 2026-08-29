@@ -58,15 +58,16 @@ cd ~/dotfiles
 This links all config files into `$HOME`, re-runs the app/agent removals, reloads
 Hyprland + the shell, and enables the sync watchdog (below).
 
-## Step 5 — Install themes (optional)
+## Step 5 — Themes (installed automatically by bootstrap)
+
+`bootstrap.sh` installs the **38 curated themes** from `themes.txt` (the rest are
+blacklisted — see `theme-blacklist.txt`). You can also run it directly:
 
 ```bash
 ./install-themes.sh
 ```
 
-Installs the **38 curated themes** I actually use (the rest are blacklisted — see
-`theme-blacklist.txt`). GitHub rate-limits unauthenticated clones — if some fail,
-just re-run the script to retry.
+GitHub rate-limits unauthenticated clones — if some fail, just re-run it to retry.
 
 Stock themes (the ~22 that ship with Omarchy) can't be deleted; the ones I don't
 want are listed in `theme-blacklist.txt`.

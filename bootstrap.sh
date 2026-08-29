@@ -39,4 +39,7 @@ echo "→ Enabling the dotfiles sync watchdog (keeps symlinks intact)"
 systemctl --user daemon-reload >/dev/null 2>&1 || true
 systemctl --user enable --now omarchy-dotfiles-sync.timer >/dev/null 2>&1 || true
 
-echo "✓ Done. Community themes are NOT installed by default — run ./install-themes.sh if you want them."
+echo "→ Installing the selected themes (from themes.txt)"
+"$DOTFILES/install-themes.sh"
+
+echo "✓ Done."
