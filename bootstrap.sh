@@ -17,7 +17,7 @@ link() {
 
 echo "→ Linking config files into $HOME"
 while IFS= read -r -d '' f; do
-  rel="${f#"$DOTFILES/home/"}"
+  rel="${f#./}"
   link "$DOTFILES/home/$rel" "$HOME/$rel"
 done < <(cd "$DOTFILES/home" && find . -type f -print0)
 

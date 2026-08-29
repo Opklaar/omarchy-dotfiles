@@ -9,6 +9,7 @@ My personal Omarchy (Arch + Hyprland) configuration.
 - **Double-tap script** (`home/.local/bin/omarchy-super-tap`).
 - **Bar layout** (`home/.config/omarchy/shell.json`).
 - **Shell cleanup** (`home/.bashrc`) — dropped aliases/functions for removed agents and tmux/herdr layouts.
+- **OpenCode/DeepSeek** (`home/.config/opencode/opencode.json`) — pins the DeepSeek models (`v4-pro` main, `v4-flash` small, `v4-flash-vision-exp` vision). DeepSeek is the only AI; every other agent is removed.
 
 ## Install on a fresh machine
 
@@ -17,6 +18,7 @@ git clone https://github.com/Opklaar/omarchy-dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./bootstrap.sh           # link configs + re-run app/agent removals
 ./install-themes.sh      # optional: re-clone ~135 community themes
+opencode auth login      # the ONLY thing you bring: your DeepSeek API key
 ```
 
 `bootstrap.sh` is idempotent — re-run it after `git pull` to apply updates.

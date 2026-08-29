@@ -1,0 +1,20 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+
+  // Default model for the main (primary) agent.
+  "model": "deepseek/deepseek-v4-pro",
+
+  // Cheap model for background chores (session titles, summaries).
+  "small_model": "deepseek/deepseek-v4-flash",
+
+  "agent": {
+    "vision": {
+      "mode": "subagent",
+      "model": "deepseek/deepseek-v4-flash-vision-exp",
+      "description": "Analyzes images: screenshots, diagrams, UI mockups, charts, photos of whiteboards or documents. Use whenever a task requires actually looking at an image file.",
+      "color": "info",
+      "prompt": "You are a vision analysis subagent. You are given one or more image files plus a question about them.\n\nLook at the images carefully and answer the question directly. Describe exactly what is visible — text (transcribe it verbatim), layout, colors, UI elements, error messages, chart values. Do not speculate about content you cannot actually see in the image; say when something is unreadable or cut off.\n\nYour final message is the answer returned to the calling agent, so make it self-contained: no preamble, no offers of further help."
+    }
+  }
+}
