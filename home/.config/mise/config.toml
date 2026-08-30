@@ -1,5 +1,6 @@
 [tools]
 gh = "latest"
 "github:basecamp/hey-cli" = "latest"
+go = "latest"
 node = "26.7.0"
 opencode = "latest"
