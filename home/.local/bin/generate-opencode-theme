@@ -1,0 +1,56 @@
+#!/bin/bash
+# Generate an OpenCode theme (~/.config/opencode/themes/omarchy.json) from the
+# active Omarchy theme. Runs on every theme change via the theme-set hook, and
+# can be run manually to (re)generate.
+set -euo pipefail
+
+# Resolve a semantic color from the active theme; fall back on error.
+color() { omarchy-theme-color "$1" 2>/dev/null || true; }
+
+accent=$(color accent);         [ -n "$accent" ]      || accent="#dc8164"
+background=$(color background); [ -n "$background" ]  || background="#000000"
+foreground=$(color foreground); [ -n "$foreground" ]  || foreground="#ffffff"
+muted=$(color muted);           [ -n "$muted" ]       || muted="$foreground"
+red=$(color red);               [ -n "$red" ]         || red="#ff0000"
+yellow=$(color yellow);         [ -n "$yellow" ]      || yellow="#ffff00"
+green=$(color green);           [ -n "$green" ]       || green="#00ff00"
+blue=$(color blue);             [ -n "$blue" ]        || blue="#0000ff"
+cyan=$(color cyan);             [ -n "$cyan" ]        || cyan="#00ffff"
+magenta=$(color magenta);       [ -n "$magenta" ]     || magenta="#ff00ff"
+lighter=$(color lighter_background); [ -n "$lighter" ] || lighter="$background"
+darker=$(color dark_background);      [ -n "$darker" ] || darker="$background"
+
+mkdir -p "$HOME/.config/opencode/themes"
+cat > "$HOME/.config/opencode/themes/omarchy.json" <<EOF
+{
+  "\$schema": "https://opencode.ai/theme.json",
+  "theme": {
+    "primary": "$accent",
+    "secondary": "$blue",
+    "accent": "$accent",
+    "error": "$red",
+    "warning": "$yellow",
+    "success": "$green",
+    "info": "$cyan",
+    "text": "$foreground",
+    "textMuted": "$muted",
+    "background": "$background",
+    "backgroundPanel": "$lighter",
+    "backgroundElement": "$darker",
+    "border": "$muted",
+    "borderActive": "$accent",
+    "borderSubtle": "$muted",
+    "syntaxKeyword": "$blue",
+    "syntaxString": "$green",
+    "syntaxNumber": "$magenta",
+    "syntaxFunction": "$blue",
+    "syntaxComment": "$muted",
+    "syntaxType": "$yellow",
+    "syntaxVariable": "$cyan",
+    "syntaxOperator": "$magenta",
+    "syntaxPunctuation": "$foreground"
+  }
+}
+EOF
+
+echo "Generated OpenCode theme (accent=$accent, background=$background)"

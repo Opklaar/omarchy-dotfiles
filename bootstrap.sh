@@ -48,4 +48,8 @@ echo "→ Installing the selected themes (from themes.txt)"
 echo "→ Setting theme to $THEME"
 omarchy theme set "$THEME" >/dev/null 2>&1 || true
 
+echo "→ Installing the OpenCode theme hook + generating theme"
+omarchy hook install theme-set "$HOME/.local/bin/generate-opencode-theme" >/dev/null 2>&1 || true
+"$HOME/.local/bin/generate-opencode-theme" >/dev/null 2>&1 || true
+
 echo "✓ Done."
