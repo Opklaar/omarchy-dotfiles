@@ -24,4 +24,15 @@ while IFS= read -r url; do
   fi
 done < "$DOTFILES/themes.txt"
 
+# Apply per-theme overrides (customized colors.toml, etc.) on top of the clones.
+OVERRIDES="$DOTFILES/theme-overrides"
+if [ -d "$OVERRIDES" ]; then
+  for slug in "$OVERRIDES"/*/; do
+    name=$(basename "$slug")
+    [ -d "$T/$name" ] || continue
+    cp -f "$slug"* "$T/$name/" 2>/dev/null
+    echo "✓ Applied override: $name"
+  done
+fi
+
 echo "✓ Cloned $ok themes, $fail failed (re-run to retry rate-limited ones)."
